@@ -1,0 +1,14 @@
+
+all: myshell
+
+myshell: LineParser.o myshell.o
+	gcc -m32  myshell.o LineParser.o -o myshell
+
+LineParser.o: LineParser.h LineParser.c
+	gcc -m32 -Wall -ansi -c  LineParser.c -o LineParser.o
+
+myshell.o: task1.c
+	gcc -m32 -Wall -ansi -c  task1.c -o myshell.o
+
+clean: 
+	rm -f *.o myshell
